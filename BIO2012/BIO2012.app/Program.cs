@@ -12,6 +12,13 @@ namespace BIO2012.app
         {
             Debug.Assert(model("GHIJKL", "AE", 6) == "FA");
             Debug.Assert(model("GHIJKL", "AE", 100) == "VP");
+            Debug.Assert(model("ABCDEF", "HP", 1) == "PV");
+            Debug.Assert(model("ABCDEF", "PH", 1) == "HB");
+            Debug.Assert(model("AEFMNO", "DK", 13) == "SK");
+            Debug.Assert(model("AEFMNS", "DK", 13) == "SJ");
+            Debug.Assert(model("ABCDEF", "GO", 100) == "QI");
+            Debug.Assert(model("FJLMQU", "GO", 100) == "RJ");
+            Debug.Assert(model("FDEGNQ", "AE", 9876) == "WQ");
             Console.WriteLine("Should be fine.");
             Console.ReadKey();
         }
@@ -92,7 +99,7 @@ namespace BIO2012.app
                     else
                     {
                         next = s[position.current].next;
-                        s[position.current] = (s[position.current].pre, s[position.current].left, s[position.current].right, false, (s[position.current].next == s[position.current].left) ? s[position.current].right : s[position.current].left);
+                        s[position.current] = (s[position.current].pre, s[position.current].left, s[position.current].right, true, (s[position.current].next == s[position.current].left) ? s[position.current].right : s[position.current].left);
                         position = (position.current, next);
                     }
                 }
